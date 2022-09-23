@@ -1,13 +1,4 @@
-pipeline {
-  agent any
-  options {
-    ansiColor ('xterm')
-    }
-  stages {
-    stage ('test') {
-      steps {
-        sh ' ls -al'
-        }
-      }
-    }
-  }
+@Library('robo-jenkins-shared-library')
+
+env.COMPONENT=cart1
+nodejs ()
