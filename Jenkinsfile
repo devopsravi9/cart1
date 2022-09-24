@@ -3,5 +3,5 @@
 env.COMPONENT= 'cart'
 env.GIT= 'cart1'
 env.APP_TYPE= 'nodejs'
-env.TAG_NAME= '1.0.2'
+
 nodejs ()
