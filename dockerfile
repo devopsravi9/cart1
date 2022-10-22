@@ -1,9 +1,9 @@
 FROM       node
 RUN        useradd roboshop
 RUN        mkdir /app
-RUN        chmod roboshop /app
-USER       roboshop
+RUN        chown roboshop /app
 WORKDIR    /app
 ADD        server.js /app
-ADD        node_modules/ /app/node_modules
+ADD        node_modules /app/node_modules
+USER       roboshop
 ENTRYPOINT ["node", "server.js"]
