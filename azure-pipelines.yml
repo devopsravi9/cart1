@@ -7,8 +7,17 @@ trigger:
 pool: azure
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: npm install
+  displayName: 'install nodejs dependencies'
+
+- script: docker build -t cart .
+  displayName: 'build docker image'
+
+- script:
+    aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u3t4a1d0
+    docker tag cart:latest public.ecr.aws/u3t4a1d0/cart:latest
+    docker push public.ecr.aws/u3t4a1d0/cart:latest
+  displayName: 'upload an artifact'
 
 
 
