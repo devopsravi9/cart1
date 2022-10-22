@@ -1,0 +1,10 @@
+trigger:
+- main
+
+pool:
+  name: azure
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
