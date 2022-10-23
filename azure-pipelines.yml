@@ -14,7 +14,7 @@ resources:
   - repository: templates
     type: github
     name: devopsravi9/robo-azure-devops-template
-    endpoint: devopsravi9
+    endpoint: devops
 
 stages:
 - template : nodejs.yml@templates
