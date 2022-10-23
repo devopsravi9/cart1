@@ -4,7 +4,7 @@
 trigger:
 - main
 
-pool: works
+pool: Default
 
 steps:
 - script: npm install
