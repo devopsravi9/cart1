@@ -6,6 +6,9 @@ trigger:
 
 pool: Default
 
+variables:
+  COMPONENT: cart
+
 resources:
   repositories:
   - repository: templates
@@ -16,16 +19,6 @@ resources:
 stages:
 - template : nodejs.yml@templates
 
-
-variables:
-  COMPONENT: cart
-
-steps:
-- script: npm install
-  displayName: 'install nodejs dependencies'
-
-- script: docker build -t cart .
-  displayName: 'build docker image'
 
 
 
