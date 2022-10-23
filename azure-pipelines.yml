@@ -6,6 +6,20 @@ trigger:
 
 pool: Default
 
+resources:
+  repositories:
+  - repository: templates
+    type: github
+    name: devopsravi9/robo-azure-devops-template
+    endpoint: devopsravi9
+
+stages:
+- template : nodejs.yml@templates
+
+
+variables:
+  COMPONENT: cart
+
 steps:
 - script: npm install
   displayName: 'install nodejs dependencies'
@@ -13,15 +27,7 @@ steps:
 - script: docker build -t cart .
   displayName: 'build docker image'
 
-- script:
-    aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u3t4a1d0
-  displayName: 'upload an artifact 1 '
-- script:
-    docker tag cart:latest public.ecr.aws/u3t4a1d0/cart:latest
-  displayName: 'upload an artifact 2 '
-- script:
-    docker push public.ecr.aws/u3t4a1d0/cart:latest
-  displayName: 'upload an artifact 3 '
+
 
 
 
