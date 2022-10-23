@@ -15,13 +15,9 @@ steps:
 
 - script:
     aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u3t4a1d0
-  displayName: 'upload an artifact 1 '
-- script:
     docker tag cart:latest public.ecr.aws/u3t4a1d0/cart:latest
-  displayName: 'upload an artifact 2'
-- script:
     docker push public.ecr.aws/u3t4a1d0/cart:latest
-  displayName: 'upload an artifact 3'
+  displayName: 'upload an artifact 1 '
 
 
 
