@@ -4,3 +4,9 @@ service:
   type: ClusterIP
 ingress:
   enabled: false
+configMap:
+  enabled: "true"
+  data:
+    REDIS_HOST: "roboshop-dev-elasticache-cluster.f5ime6.0001.use1.cache.amazonaws.com"
+    CATALOGUE_HOST: catalogue
+    CATALOGUE_PORT: "8080"
